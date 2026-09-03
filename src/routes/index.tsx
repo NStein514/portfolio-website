@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone, FileText, Github, Linkedin, Play } from "lucide-re
 import oniWayOutImg from "../assets/project-oni-way-out.jpg";
 import supershotImg from "../assets/project-supershot.jpg";
 import tonedeafImg from "../assets/project-tonedeaf.jpg";
-import resumeAsset from "../../public/nathaniel-stein-resume.pdf.asset.json";
+import resumeAsset from "../assets/nathaniel-stein-resume.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
