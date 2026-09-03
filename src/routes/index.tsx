@@ -45,7 +45,7 @@ const projects = [
     accent: "primary" as const,
   },
   {
-    title: "Synthesize Supershot",
+    title: "Synthwave Supershot",
     category: "GAME",
     video: supershotVideo.url,
     poster: supershotPoster.url,
