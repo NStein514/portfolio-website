@@ -1,9 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, FileText, Github, Linkedin, Play } from "lucide-react";
+import { Mail, MapPin, Phone, FileText, Github, Linkedin } from "lucide-react";
 
-import oniWayOutImg from "../assets/project-oni-way-out.jpg";
-import supershotImg from "../assets/project-supershot.jpg";
-import tonedeafImg from "../assets/project-tonedeaf.jpg";
+import supershotVideo from "../assets/supershot-demo.mp4.asset.json";
+import supershotPoster from "../assets/supershot-poster.jpg.asset.json";
+import tonedeafVideo from "../assets/tonedeaf-demo.mp4.asset.json";
+import tonedeafPoster from "../assets/tonedeaf-poster.jpg.asset.json";
+import subthreadVideo from "../assets/subthread-demo.mp4.asset.json";
+import subthreadPoster from "../assets/subthread-poster.jpg.asset.json";
 const resumeUrl = "/nathaniel-stein-resume.pdf";
 
 export const Route = createFileRoute("/")({
@@ -32,18 +35,20 @@ const lineNumbers = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
 
 const projects = [
   {
-    title: "The Oni Way Out",
+    title: "SubThread",
     category: "GAME",
-    image: oniWayOutImg,
+    video: subthreadVideo.url,
+    poster: subthreadPoster.url,
     description:
-      "Solo Unity escape game built with self-created Blender assets. Programmed escape-focused mechanics and interaction systems in C#.",
-    tags: ["Unity", "C#", "Blender"],
+      "A sidescroller Unity game following the main character, Fate, who has been cut off from his destiny and all he now has is his red string of destiny to help him find where he is meant to be, while also fighting off the dangers of the world around him.",
+    tags: ["Unity", "C#", "2D"],
     accent: "primary" as const,
   },
   {
-    title: "Synthesize Supershot",
+    title: "Synthwave Supershot",
     category: "GAME",
-    image: supershotImg,
+    video: supershotVideo.url,
+    poster: supershotPoster.url,
     description:
       "Collaborative third-person, wave-based Unity shooter featuring a humanoid mech fighting robotic enemies.",
     tags: ["Unity", "C#", "Team Dev"],
@@ -52,7 +57,8 @@ const projects = [
   {
     title: "ToneDeaf (Symphonic Revolution)",
     category: "VR",
-    image: tonedeafImg,
+    video: tonedeafVideo.url,
+    poster: tonedeafPoster.url,
     description:
       "Collaborative interactive VR escape-room experience centered on music-driven puzzles and a staged finale.",
     tags: ["Unity", "VR", "C#"],
@@ -210,8 +216,9 @@ function Projects() {
       </div>
 
       <p className="mt-8 text-sm text-muted-foreground font-mono">
-        // Demo videos for these projects will be added soon.
+        // Press play on any card to watch the gameplay demo.
       </p>
+
     </section>
   );
 }
@@ -240,28 +247,23 @@ function ProjectCard({
       className={`group border border-border bg-card/30 rounded-xl overflow-hidden transition-all hover:bg-card/50 ${accentClasses[project.accent]} animate-reveal`}
       style={{ animationDelay: `${(index + 1) * 100}ms` }}
     >
-      <div className="relative aspect-[4/5] border-b border-border overflow-hidden">
-        <img
-          src={project.image}
-          alt={`${project.title} project preview`}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          width={1080}
-          height={1350}
+      <div className="relative aspect-video border-b border-border overflow-hidden bg-black">
+        <video
+          src={project.video}
+          poster={project.poster}
+          controls
+          playsInline
+          preload="none"
+          aria-label={`${project.title} gameplay demo`}
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-          <span
-            className={`text-[9px] font-mono px-2 py-1 rounded border ${badgeClasses[project.accent]}`}
-          >
-            {project.category}
-          </span>
-          <span className="flex items-center gap-1.5 text-[10px] font-mono text-muted-foreground bg-background/80 px-2 py-1 rounded">
-            <Play className="size-3" />
-            Demo soon
-          </span>
-        </div>
+        <span
+          className={`pointer-events-none absolute top-3 left-3 text-[9px] font-mono px-2 py-1 rounded border bg-background/80 ${badgeClasses[project.accent]}`}
+        >
+          {project.category}
+        </span>
       </div>
+
 
       <div className="p-6">
         <h3 className="text-lg lg:text-xl font-bold text-primary group-hover:text-foreground transition-colors mb-3">
