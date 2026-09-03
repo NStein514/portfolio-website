@@ -35,14 +35,14 @@ const lineNumbers = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
 
 const projects = [
   {
-    title: "SubThread",
-    category: "GAME",
-    video: subthreadVideo.url,
-    poster: subthreadPoster.url,
+    title: "ToneDeaf (Symphonic Revolution)",
+    category: "VR",
+    video: tonedeafVideo.url,
+    poster: tonedeafPoster.url,
     description:
-      "A sidescroller Unity game following the main character, Fate, who has been cut off from his destiny and all he now has is his red string of destiny to help him find where he is meant to be, while also fighting off the dangers of the world around him.",
-    tags: ["Unity", "C#", "2D"],
-    accent: "primary" as const,
+      "Collaborative interactive VR escape-room experience centered on music-driven puzzles and a staged finale.",
+    tags: ["Unity", "VR", "C#"],
+    accent: "accent" as const,
   },
   {
     title: "Synthwave Supershot",
@@ -55,14 +55,14 @@ const projects = [
     accent: "secondary" as const,
   },
   {
-    title: "ToneDeaf (Symphonic Revolution)",
-    category: "VR",
-    video: tonedeafVideo.url,
-    poster: tonedeafPoster.url,
+    title: "SubThread",
+    category: "GAME",
+    video: subthreadVideo.url,
+    poster: subthreadPoster.url,
     description:
-      "Collaborative interactive VR escape-room experience centered on music-driven puzzles and a staged finale.",
-    tags: ["Unity", "VR", "C#"],
-    accent: "accent" as const,
+      "A sidescroller Unity game following the main character, Fate, who has been cut off from his destiny and all he now has is his red string of destiny to help him find where he is meant to be, while also fighting off the dangers of the world around him.",
+    tags: ["Unity", "C#", "2D"],
+    accent: "primary" as const,
   },
 ];
 
