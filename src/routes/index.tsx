@@ -35,18 +35,20 @@ const lineNumbers = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
 
 const projects = [
   {
-    title: "The Oni Way Out",
+    title: "SubThread",
     category: "GAME",
-    image: oniWayOutImg,
+    video: subthreadVideo.url,
+    poster: subthreadPoster.url,
     description:
-      "Solo Unity escape game built with self-created Blender assets. Programmed escape-focused mechanics and interaction systems in C#.",
-    tags: ["Unity", "C#", "Blender"],
+      "A sidescroller Unity game following the main character, Fate, who has been cut off from his destiny and all he now has is his red string of destiny to help him find where he is meant to be, while also fighting off the dangers of the world around him.",
+    tags: ["Unity", "C#", "2D"],
     accent: "primary" as const,
   },
   {
     title: "Synthesize Supershot",
     category: "GAME",
-    image: supershotImg,
+    video: supershotVideo.url,
+    poster: supershotPoster.url,
     description:
       "Collaborative third-person, wave-based Unity shooter featuring a humanoid mech fighting robotic enemies.",
     tags: ["Unity", "C#", "Team Dev"],
@@ -55,7 +57,8 @@ const projects = [
   {
     title: "ToneDeaf (Symphonic Revolution)",
     category: "VR",
-    image: tonedeafImg,
+    video: tonedeafVideo.url,
+    poster: tonedeafPoster.url,
     description:
       "Collaborative interactive VR escape-room experience centered on music-driven puzzles and a staged finale.",
     tags: ["Unity", "VR", "C#"],
