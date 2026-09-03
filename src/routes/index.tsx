@@ -216,8 +216,9 @@ function Projects() {
       </div>
 
       <p className="mt-8 text-sm text-muted-foreground font-mono">
-        // Demo videos for these projects will be added soon.
+        // Press play on any card to watch the gameplay demo.
       </p>
+
     </section>
   );
 }
