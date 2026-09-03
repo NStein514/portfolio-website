@@ -459,7 +459,7 @@ function Footer() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/nathanielstein"
+            href="https://linkedin.com/in/nathaniel-stein-3b3a36298"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 hover:text-primary transition-colors"
