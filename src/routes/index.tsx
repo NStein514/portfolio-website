@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, FileText, Github, Linkedin, Play } from "lucide-react";
+import { Mail, MapPin, Phone, FileText, Github, Linkedin } from "lucide-react";
 
 import supershotVideo from "../assets/supershot-demo.mp4.asset.json";
 import supershotPoster from "../assets/supershot-poster.jpg.asset.json";
