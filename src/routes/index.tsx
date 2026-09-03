@@ -247,28 +247,23 @@ function ProjectCard({
       className={`group border border-border bg-card/30 rounded-xl overflow-hidden transition-all hover:bg-card/50 ${accentClasses[project.accent]} animate-reveal`}
       style={{ animationDelay: `${(index + 1) * 100}ms` }}
     >
-      <div className="relative aspect-[4/5] border-b border-border overflow-hidden">
-        <img
-          src={project.image}
-          alt={`${project.title} project preview`}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          loading="lazy"
-          width={1080}
-          height={1350}
+      <div className="relative aspect-video border-b border-border overflow-hidden bg-black">
+        <video
+          src={project.video}
+          poster={project.poster}
+          controls
+          playsInline
+          preload="none"
+          aria-label={`${project.title} gameplay demo`}
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-          <span
-            className={`text-[9px] font-mono px-2 py-1 rounded border ${badgeClasses[project.accent]}`}
-          >
-            {project.category}
-          </span>
-          <span className="flex items-center gap-1.5 text-[10px] font-mono text-muted-foreground bg-background/80 px-2 py-1 rounded">
-            <Play className="size-3" />
-            Demo soon
-          </span>
-        </div>
+        <span
+          className={`pointer-events-none absolute top-3 left-3 text-[9px] font-mono px-2 py-1 rounded border bg-background/80 ${badgeClasses[project.accent]}`}
+        >
+          {project.category}
+        </span>
       </div>
+
 
       <div className="p-6">
         <h3 className="text-lg lg:text-xl font-bold text-primary group-hover:text-foreground transition-colors mb-3">
