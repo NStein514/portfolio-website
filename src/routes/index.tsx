@@ -181,11 +181,12 @@ function Hero() {
         </a>
         <a
           href={resumeAsset.url}
-          download
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-border text-primary font-mono text-sm rounded hover:bg-white/5 transition-all"
         >
           <FileText className="size-4" />
-          Download Resume
+          View Resume
         </a>
       </div>
     </section>
@@ -412,7 +413,8 @@ function Footer() {
             </a>
             <a
               href={resumeAsset.url}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-border text-primary font-mono text-sm rounded hover:bg-white/5 transition-all"
             >
               <FileText className="size-4" />
