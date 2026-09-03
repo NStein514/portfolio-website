@@ -128,7 +128,7 @@ function Index() {
 function Navigation() {
   const links = [
     { href: "#work", label: "Projects", active: true },
-    { href: "#stack", label: "Stack", active: false },
+    { href: "#stack", label: "Skills", active: false },
     { href: "#experience", label: "Experience", active: false },
     { href: "#contact", label: "Contact", active: false },
   ];
@@ -164,7 +164,7 @@ function Hero() {
     <section className="py-20 lg:py-36 animate-reveal">
       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-primary/20 bg-primary/5 text-primary text-[10px] font-mono mb-8 tracking-widest uppercase">
         <span className="size-1.5 rounded-full bg-primary animate-pulse" />
-        Unity / C# • Flutter / Dart
+        Mobile Developer — Flutter/Dart & Unity/C# & Firebase/JavaScript
       </div>
 
       <h1 className="text-5xl lg:text-8xl font-extrabold tracking-tighter mb-8 text-balance leading-[0.9]">
@@ -288,7 +288,7 @@ function Expertise() {
           <h2 className="text-xl font-mono text-primary mb-10 tracking-tight">// Technical Expertise</h2>
 
           <div className="space-y-10 border-l border-border pl-8">
-            <SkillGroup title="Languages" skills={skills.languages} color="primary" />
+            <SkillGroup title="Programming Languages" skills={skills.languages} color="primary" />
             <SkillGroup title="Frameworks & Engines" skills={skills.frameworks} color="secondary" />
             <SkillGroup title="Platforms" skills={skills.platforms} color="accent" />
             <SkillGroup title="Additional Tools" skills={skills.tools} color="foreground" />
