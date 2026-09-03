@@ -180,7 +180,7 @@ function Hero() {
           View My Work
         </a>
         <a
-          href={resumeAsset.url}
+          href={resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-border text-primary font-mono text-sm rounded hover:bg-white/5 transition-all"
@@ -412,7 +412,7 @@ function Footer() {
               Contact Me
             </a>
             <a
-              href={resumeAsset.url}
+              href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-border text-primary font-mono text-sm rounded hover:bg-white/5 transition-all"
