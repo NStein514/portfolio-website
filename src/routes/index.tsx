@@ -1,9 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, MapPin, Phone, FileText, Github, Linkedin, Play } from "lucide-react";
 
-import oniWayOutImg from "../assets/project-oni-way-out.jpg";
-import supershotImg from "../assets/project-supershot.jpg";
-import tonedeafImg from "../assets/project-tonedeaf.jpg";
+import supershotVideo from "../assets/supershot-demo.mp4.asset.json";
+import supershotPoster from "../assets/supershot-poster.jpg.asset.json";
+import tonedeafVideo from "../assets/tonedeaf-demo.mp4.asset.json";
+import tonedeafPoster from "../assets/tonedeaf-poster.jpg.asset.json";
+import subthreadVideo from "../assets/subthread-demo.mp4.asset.json";
+import subthreadPoster from "../assets/subthread-poster.jpg.asset.json";
 const resumeUrl = "/nathaniel-stein-resume.pdf";
 
 export const Route = createFileRoute("/")({
