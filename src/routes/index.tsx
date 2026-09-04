@@ -8,6 +8,10 @@ import tonedeafPoster from "../assets/tonedeaf-poster.jpg.asset.json";
 import subthreadVideo from "../assets/subthread-demo.mp4.asset.json";
 import subthreadPoster from "../assets/subthread-poster.jpg.asset.json";
 const resumeUrl = "/nathaniel-stein-resume.pdf";
+// Videos/posters are served from Lovable's asset CDN. Use absolute URLs so
+// they keep working when the site is deployed off Lovable (e.g. Cloudflare).
+const assetBase = "https://id-preview--92decfce-4258-4ad6-ba0c-acc6e8b5d2bd.lovable.app";
+const asset = (a: { url: string }) => assetBase + a.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,8 +41,8 @@ const projects = [
   {
     title: "ToneDeaf (Symphonic Revolution)",
     category: "VR",
-    video: tonedeafVideo.url,
-    poster: tonedeafPoster.url,
+    video: asset(tonedeafVideo),
+    poster: asset(tonedeafPoster),
     description:
       "Collaborative interactive VR escape-room experience centered on music-driven puzzles and a staged finale.",
     tags: ["Unity", "VR", "C#"],
@@ -47,8 +51,8 @@ const projects = [
   {
     title: "Synthwave Supershot",
     category: "GAME",
-    video: supershotVideo.url,
-    poster: supershotPoster.url,
+    video: asset(supershotVideo),
+    poster: asset(supershotPoster),
     description:
       "Collaborative third-person, wave-based Unity shooter featuring a humanoid mech fighting robotic enemies.",
     tags: ["Unity", "C#", "Team Dev"],
@@ -57,8 +61,8 @@ const projects = [
   {
     title: "SubThread",
     category: "GAME",
-    video: subthreadVideo.url,
-    poster: subthreadPoster.url,
+    video: asset(subthreadVideo),
+    poster: asset(subthreadPoster),
     description:
       "A sidescroller Unity game following the main character, Fate, who has been cut off from his destiny and all he now has is his red string of destiny to help him find where he is meant to be, while also fighting off the dangers of the world around him.",
     tags: ["Unity", "C#", "2D"],
