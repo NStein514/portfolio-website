@@ -8,6 +8,10 @@ import tonedeafPoster from "../assets/tonedeaf-poster.jpg.asset.json";
 import subthreadVideo from "../assets/subthread-demo.mp4.asset.json";
 import subthreadPoster from "../assets/subthread-poster.jpg.asset.json";
 const resumeUrl = "/nathaniel-stein-resume.pdf";
+// Videos/posters are served from Lovable's asset CDN. Use absolute URLs so
+// they keep working when the site is deployed off Lovable (e.g. Cloudflare).
+const assetBase = "https://id-preview--92decfce-4258-4ad6-ba0c-acc6e8b5d2bd.lovable.app";
+const asset = (a: { url: string }) => assetBase + a.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
