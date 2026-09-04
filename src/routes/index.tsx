@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const lineNumbers = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+const lineNumbers = Array.from({ length: 80 }, (_, i) => String(i + 1).padStart(2, "0"));
 
 const projects = [
   {
@@ -257,24 +257,18 @@ function ProjectCard({
           aria-label={`${project.title} gameplay demo`}
           className="w-full h-full object-cover"
         />
-        <span
-          className={`pointer-events-none absolute top-3 left-3 text-[9px] font-mono px-2 py-1 rounded border bg-background/80 ${badgeClasses[project.accent]}`}
-        >
-          {project.category}
-        </span>
       </div>
-
 
       <div className="p-6">
         <h3 className="text-lg lg:text-xl font-bold text-primary group-hover:text-foreground transition-colors mb-3">
           {project.title}
         </h3>
         <p className="text-sm text-muted-foreground leading-relaxed mb-5">{project.description}</p>
-        <div className="flex flex-wrap gap-2 text-[10px] font-mono text-secondary/80">
-          {project.tags.map((tag) => (
-            <span key={tag}>#{tag}</span>
-          ))}
-        </div>
+        <span
+          className={`inline-block text-[9px] font-mono px-2 py-1 rounded border ${badgeClasses[project.accent]}`}
+        >
+          {project.category}
+        </span>
       </div>
     </div>
   );
@@ -480,7 +474,7 @@ function TerminalCard() {
         <div className="size-2 rounded-full bg-primary" />
         <span className="text-primary uppercase tracking-widest text-[10px]">System Terminal</span>
       </div>
-      <p className="text-primary">$ whoami</p>
+      <p className="text-primary">$ name</p>
       <p className="text-foreground/90">&gt; Nathaniel Stein</p>
       <p className="text-primary">$ role</p>
       <p className="text-secondary">&gt; Mobile Developer</p>
