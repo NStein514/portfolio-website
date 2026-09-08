@@ -208,7 +208,7 @@ function Projects() {
     <section id="work" className="py-20 scroll-mt-20">
       <div className="flex items-center gap-6 mb-14">
         <h2 className="text-2xl lg:text-3xl font-bold tracking-tighter flex items-center gap-3">
-          <span className="text-primary font-mono text-lg">01.</span> Selected Projects
+          <span className="text-primary font-mono text-lg">//</span> Selected Projects
         </h2>
         <div className="h-px flex-1 bg-border" />
       </div>
