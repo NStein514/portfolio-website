@@ -5,6 +5,8 @@ import supershotVideo from "../assets/supershot-demo.mp4.asset.json";
 import supershotPoster from "../assets/supershot-poster.jpg.asset.json";
 import tonedeafVideo from "../assets/tonedeaf-demo.mp4.asset.json";
 import tonedeafPoster from "../assets/tonedeaf-poster.jpg.asset.json";
+import bullseyeVideo from "../assets/bullseye-bill-demo.mp4.asset.json";
+import bullseyePoster from "../assets/bullseye-bill-poster.jpg.asset.json";
 import subthreadVideo from "../assets/subthread-demo.mp4.asset.json";
 import subthreadPoster from "../assets/subthread-poster.jpg.asset.json";
 const resumeUrl = "/nathaniel-stein-resume.pdf";
@@ -47,6 +49,16 @@ const projects = [
       "Collaborative interactive VR escape-room experience centered on music-driven puzzles and a staged finale.",
     tags: ["Unity", "VR", "C#"],
     accent: "accent" as const,
+  },
+  {
+    title: "Bullseye Bill",
+    category: "GAME",
+    video: asset(bullseyeVideo),
+    poster: asset(bullseyePoster),
+    description:
+      "Collaborative dart-throwing game made during the internal Lantern Light Studios' game jam. I served as the lead programmer on this project.",
+    tags: ["Unity", "C#", "Team Dev"],
+    accent: "primary" as const,
   },
   {
     title: "Synthwave Supershot",
