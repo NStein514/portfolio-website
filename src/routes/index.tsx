@@ -51,6 +51,16 @@ const projects = [
     accent: "accent" as const,
   },
   {
+    title: "Bullseye Bill",
+    category: "GAME",
+    video: asset(bullseyeVideo),
+    poster: asset(bullseyePoster),
+    description:
+      "Collaborative dart-throwing game made during the internal Lantern Light Studios' game jam. I served as the lead programmer on this project.",
+    tags: ["Unity", "C#", "Team Dev"],
+    accent: "primary" as const,
+  },
+  {
     title: "Synthwave Supershot",
     category: "GAME",
     video: asset(supershotVideo),
