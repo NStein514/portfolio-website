@@ -9,6 +9,8 @@ import bullseyeVideo from "../assets/bullseye-bill-demo.mp4.asset.json";
 import bullseyePoster from "../assets/bullseye-bill-poster.jpg.asset.json";
 import subthreadVideo from "../assets/subthread-demo.mp4.asset.json";
 import subthreadPoster from "../assets/subthread-poster.jpg.asset.json";
+import healthyHabitsVideo from "../assets/healthy-habits-demo.mp4.asset.json";
+import healthyHabitsPoster from "../assets/healthy-habits-poster.jpg.asset.json";
 const resumeUrl = "/nathaniel-stein-resume.pdf";
 // Videos/posters are served from Lovable's asset CDN. Use absolute URLs so
 // they keep working when the site is deployed off Lovable (e.g. Cloudflare).
@@ -49,6 +51,7 @@ const projects = [
       "Collaborative interactive VR escape-room experience centered on music-driven puzzles and a staged finale.",
     tags: ["Unity", "VR", "C#"],
     accent: "accent" as const,
+    tall: false,
   },
   {
     title: "Bullseye Bill",
@@ -59,6 +62,7 @@ const projects = [
       "Collaborative dart-throwing game made during the internal Lantern Light Studios' game jam. I served as the lead programmer on this project.",
     tags: ["Unity", "C#", "Team Dev"],
     accent: "primary" as const,
+    tall: false,
   },
   {
     title: "Synthwave Supershot",
@@ -69,6 +73,18 @@ const projects = [
       "Collaborative third-person, wave-based Unity shooter featuring a humanoid mech fighting robotic enemies.",
     tags: ["Unity", "C#", "Team Dev"],
     accent: "secondary" as const,
+    tall: false,
+  },
+  {
+    title: "Healthy Habits",
+    category: "MOBILE",
+    video: asset(healthyHabitsVideo),
+    poster: asset(healthyHabitsPoster),
+    description:
+      "Solo mobile development project of a daily healthy habits checklist with an emphasis on virtual decorations.",
+    tags: ["Flutter", "Dart", "Mobile"],
+    accent: "secondary" as const,
+    tall: true,
   },
   {
     title: "SubThread",
@@ -79,6 +95,7 @@ const projects = [
       "A sidescroller Unity game following the main character, Fate, who has been cut off from his destiny and all he now has is his red string of destiny to help him find where he is meant to be, while also fighting off the dangers of the world around him.",
     tags: ["Unity", "C#", "2D"],
     accent: "primary" as const,
+    tall: false,
   },
 ];
 
@@ -263,7 +280,9 @@ function ProjectCard({
       className={`group border border-border bg-card/30 rounded-xl overflow-hidden transition-all hover:bg-card/50 ${accentClasses[project.accent]} animate-reveal`}
       style={{ animationDelay: `${(index + 1) * 100}ms` }}
     >
-      <div className="relative aspect-video border-b border-border overflow-hidden bg-black">
+      <div
+        className={`relative border-b border-border overflow-hidden bg-black ${project.tall ? "aspect-[9/16]" : "aspect-video"}`}
+      >
         <video
           src={project.video}
           poster={project.poster}
