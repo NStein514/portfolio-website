@@ -276,7 +276,9 @@ function ProjectCard({
       className={`group border border-border bg-card/30 rounded-xl overflow-hidden transition-all hover:bg-card/50 ${accentClasses[project.accent]} animate-reveal`}
       style={{ animationDelay: `${(index + 1) * 100}ms` }}
     >
-      <div className="relative aspect-video border-b border-border overflow-hidden bg-black">
+      <div
+        className={`relative border-b border-border overflow-hidden bg-black ${project.tall ? "aspect-[9/16]" : "aspect-video"}`}
+      >
         <video
           src={project.video}
           poster={project.poster}
