@@ -281,7 +281,7 @@ function ProjectCard({
       style={{ animationDelay: `${(index + 1) * 100}ms` }}
     >
       <div
-        className={`relative border-b border-border overflow-hidden bg-black ${project.tall ? "aspect-[9/16]" : "aspect-video"}`}
+        className={`relative border-b border-border overflow-hidden bg-black ${project.tall ? "aspect-[9/20]" : "aspect-video"}`}
       >
         <video
           src={project.video}
@@ -290,7 +290,7 @@ function ProjectCard({
           playsInline
           preload="none"
           aria-label={`${project.title} gameplay demo`}
-          className="w-full h-full object-cover"
+          className={`w-full h-full ${project.tall ? "object-contain" : "object-cover"}`}
         />
       </div>
 
