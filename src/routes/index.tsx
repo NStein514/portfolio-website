@@ -51,6 +51,7 @@ const projects = [
       "Collaborative interactive VR escape-room experience centered on music-driven puzzles and a staged finale.",
     tags: ["Unity", "VR", "C#"],
     accent: "accent" as const,
+    tall: false,
   },
   {
     title: "Bullseye Bill",
@@ -61,6 +62,7 @@ const projects = [
       "Collaborative dart-throwing game made during the internal Lantern Light Studios' game jam. I served as the lead programmer on this project.",
     tags: ["Unity", "C#", "Team Dev"],
     accent: "primary" as const,
+    tall: false,
   },
   {
     title: "Synthwave Supershot",
@@ -71,6 +73,7 @@ const projects = [
       "Collaborative third-person, wave-based Unity shooter featuring a humanoid mech fighting robotic enemies.",
     tags: ["Unity", "C#", "Team Dev"],
     accent: "secondary" as const,
+    tall: false,
   },
   {
     title: "Healthy Habits",
@@ -92,6 +95,7 @@ const projects = [
       "A sidescroller Unity game following the main character, Fate, who has been cut off from his destiny and all he now has is his red string of destiny to help him find where he is meant to be, while also fighting off the dangers of the world around him.",
     tags: ["Unity", "C#", "2D"],
     accent: "primary" as const,
+    tall: false,
   },
 ];
 
