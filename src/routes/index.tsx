@@ -9,6 +9,8 @@ import bullseyeVideo from "../assets/bullseye-bill-demo.mp4.asset.json";
 import bullseyePoster from "../assets/bullseye-bill-poster.jpg.asset.json";
 import subthreadVideo from "../assets/subthread-demo.mp4.asset.json";
 import subthreadPoster from "../assets/subthread-poster.jpg.asset.json";
+import healthyHabitsVideo from "../assets/healthy-habits-demo.mp4.asset.json";
+import healthyHabitsPoster from "../assets/healthy-habits-poster.jpg.asset.json";
 const resumeUrl = "/nathaniel-stein-resume.pdf";
 // Videos/posters are served from Lovable's asset CDN. Use absolute URLs so
 // they keep working when the site is deployed off Lovable (e.g. Cloudflare).
@@ -69,6 +71,17 @@ const projects = [
       "Collaborative third-person, wave-based Unity shooter featuring a humanoid mech fighting robotic enemies.",
     tags: ["Unity", "C#", "Team Dev"],
     accent: "secondary" as const,
+  },
+  {
+    title: "Healthy Habits",
+    category: "MOBILE",
+    video: asset(healthyHabitsVideo),
+    poster: asset(healthyHabitsPoster),
+    description:
+      "Solo mobile development project of a daily healthy habits checklist with an emphasis on virtual decorations.",
+    tags: ["Flutter", "Dart", "Mobile"],
+    accent: "secondary" as const,
+    tall: true,
   },
   {
     title: "SubThread",
