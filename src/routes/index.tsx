@@ -43,6 +43,17 @@ const lineNumbers = Array.from({ length: 80 }, (_, i) => String(i + 1).padStart(
 
 const projects = [
   {
+    title: "Healthy Habits",
+    category: "MOBILE",
+    video: asset(healthyHabitsVideo),
+    poster: asset(healthyHabitsPoster),
+    description:
+      "Solo mobile development project of a daily healthy habits checklist with an emphasis on virtual decorations.",
+    tags: ["Flutter", "Dart", "Mobile"],
+    accent: "secondary" as const,
+    tall: true,
+  },
+  {
     title: "ToneDeaf (Symphonic Revolution)",
     category: "VR",
     video: asset(tonedeafVideo),
@@ -74,17 +85,6 @@ const projects = [
     tags: ["Unity", "C#", "Team Dev"],
     accent: "secondary" as const,
     tall: false,
-  },
-  {
-    title: "Healthy Habits",
-    category: "MOBILE",
-    video: asset(healthyHabitsVideo),
-    poster: asset(healthyHabitsPoster),
-    description:
-      "Solo mobile development project of a daily healthy habits checklist with an emphasis on virtual decorations.",
-    tags: ["Flutter", "Dart", "Mobile"],
-    accent: "secondary" as const,
-    tall: true,
   },
   {
     title: "SubThread",
@@ -281,7 +281,7 @@ function ProjectCard({
       style={{ animationDelay: `${(index + 1) * 100}ms` }}
     >
       <div
-        className={`relative border-b border-border overflow-hidden bg-black ${project.tall ? "aspect-[9/20]" : "aspect-video"}`}
+        className={`relative border-b border-border overflow-hidden bg-black ${project.tall ? "aspect-[640/1386]" : "aspect-video"}`}
       >
         <video
           src={project.video}
