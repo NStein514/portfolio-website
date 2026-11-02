@@ -1,21 +1,20 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, FileText, Github, Linkedin } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  FileText,
+  Github,
+  Linkedin,
+  ArrowRight,
+  FileCode2,
+} from "lucide-react";
 
-import supershotVideo from "../assets/supershot-demo.mp4.asset.json";
-import supershotPoster from "../assets/supershot-poster.jpg.asset.json";
-import tonedeafVideo from "../assets/tonedeaf-demo.mp4.asset.json";
-import tonedeafPoster from "../assets/tonedeaf-poster.jpg.asset.json";
-import bullseyeVideo from "../assets/bullseye-bill-demo.mp4.asset.json";
-import bullseyePoster from "../assets/bullseye-bill-poster.jpg.asset.json";
-import subthreadVideo from "../assets/subthread-demo.mp4.asset.json";
-import subthreadPoster from "../assets/subthread-poster.jpg.asset.json";
-import healthyHabitsVideo from "../assets/healthy-habits-demo.mp4.asset.json";
-import healthyHabitsPoster from "../assets/healthy-habits-poster.jpg.asset.json";
+import { EditorTabs, IdeGutter, SiteNav } from "../components/site-chrome";
+import { StatusPill } from "../components/project-status";
+import { projectCounts, projects, statusMeta } from "../lib/projects";
+
 const resumeUrl = "/nathaniel-stein-resume.pdf";
-// Videos/posters are served from Lovable's asset CDN. Use absolute URLs so
-// they keep working when the site is deployed off Lovable (e.g. Cloudflare).
-const assetBase = "https://id-preview--92decfce-4258-4ad6-ba0c-acc6e8b5d2bd.lovable.app";
-const asset = (a: { url: string }) => assetBase + a.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,66 +37,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const lineNumbers = Array.from({ length: 80 }, (_, i) => String(i + 1).padStart(2, "0"));
-
-const projects = [
-  {
-    title: "Healthy Habits",
-    category: "MOBILE",
-    video: asset(healthyHabitsVideo),
-    poster: asset(healthyHabitsPoster),
-    description:
-      "Solo mobile development project of a daily healthy habits checklist with an emphasis on virtual decorations.",
-    tags: ["Flutter", "Dart", "Mobile"],
-    accent: "secondary" as const,
-    tall: true,
-  },
-  {
-    title: "ToneDeaf (Symphonic Revolution)",
-    category: "VR",
-    video: asset(tonedeafVideo),
-    poster: asset(tonedeafPoster),
-    description:
-      "Collaborative interactive VR escape-room experience centered on music-driven puzzles and a staged finale.",
-    tags: ["Unity", "VR", "C#"],
-    accent: "accent" as const,
-    tall: false,
-  },
-  {
-    title: "Bullseye Bill",
-    category: "GAME",
-    video: asset(bullseyeVideo),
-    poster: asset(bullseyePoster),
-    description:
-      "Collaborative dart-throwing game made during the internal Lantern Light Studios' game jam. I served as the lead programmer on this project.",
-    tags: ["Unity", "C#", "Team Dev"],
-    accent: "primary" as const,
-    tall: false,
-  },
-  {
-    title: "Synthwave Supershot",
-    category: "GAME",
-    video: asset(supershotVideo),
-    poster: asset(supershotPoster),
-    description:
-      "Collaborative third-person, wave-based Unity shooter featuring a humanoid mech fighting robotic enemies.",
-    tags: ["Unity", "C#", "Team Dev"],
-    accent: "secondary" as const,
-    tall: false,
-  },
-  {
-    title: "SubThread",
-    category: "GAME",
-    video: asset(subthreadVideo),
-    poster: asset(subthreadPoster),
-    description:
-      "A sidescroller Unity game following the main character, Fate, who has been cut off from his destiny and all he now has is his red string of destiny to help him find where he is meant to be, while also fighting off the dangers of the world around him.",
-    tags: ["Unity", "C#", "2D"],
-    accent: "primary" as const,
-    tall: false,
-  },
-];
 
 const skills = {
   languages: ["C#", "Dart", "JavaScript", "Swift", "Kotlin"],
@@ -133,19 +72,12 @@ const experience = [
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20">
-      {/* IDE Gutter */}
-      <div className="fixed left-0 top-0 h-full w-14 border-r border-border hidden lg:flex flex-col items-center pt-10 text-[11px] font-mono text-muted-foreground/30 select-none z-40">
-        {lineNumbers.map((num, i) => (
-          <div
-            key={num}
-            className={`mb-3 ${i === 2 ? "text-primary/40" : ""} ${i === 7 ? "text-secondary/40" : ""}`}
-          >
-            {num}
-          </div>
-        ))}
+      <IdeGutter />
+      {/* Brand + open files stay pinned together while the page scrolls. */}
+      <div className="sticky top-0 z-40">
+        <SiteNav />
+        <EditorTabs active="index" />
       </div>
-
-      <Navigation />
 
       <main className="max-w-6xl mx-auto px-6 lg:pl-24">
         <Hero />
@@ -158,43 +90,9 @@ function Index() {
   );
 }
 
-function Navigation() {
-  const links = [
-    { href: "#work", label: "Projects", active: true },
-    { href: "#stack", label: "Skills", active: false },
-    { href: "#experience", label: "Experience", active: false },
-    { href: "#contact", label: "Contact", active: false },
-  ];
-
-  return (
-    <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border py-4">
-      <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="font-mono text-sm tracking-tight">
-          <span className="text-secondary">const</span>{" "}
-          <span className="text-primary">NathanielStein</span> ={" "}
-          <span className="text-accent">'Developer'</span>
-        </a>
-        <div className="flex gap-6 md:gap-8 text-[11px] font-mono uppercase tracking-wider">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`transition-colors ${
-                link.active ? "text-primary" : "text-muted-foreground hover:text-primary"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </nav>
-  );
-}
-
 function Hero() {
   return (
-    <section className="py-20 lg:py-36 animate-reveal">
+    <section className="pt-10 pb-20 lg:pt-16 lg:pb-36 animate-reveal">
       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded border border-primary/20 bg-primary/5 text-primary text-[10px] font-mono mb-8 tracking-widest uppercase">
         <span className="size-1.5 rounded-full bg-primary animate-pulse" />
         Mobile Developer — Flutter/Dart & Unity/C# & Firebase/JavaScript
@@ -212,12 +110,12 @@ function Hero() {
       </p>
 
       <div className="flex flex-wrap gap-4">
-        <a
-          href="#work"
+        <Link
+          to="/projects"
           className="inline-flex items-center justify-center px-7 py-3.5 bg-primary text-primary-foreground font-bold font-mono text-sm rounded transition-all hover:bg-primary/90 hover:shadow-[0_0_24px_rgba(220,220,170,0.25)]"
         >
           View My Work
-        </a>
+        </Link>
         <a
           href={resumeUrl}
           target="_blank"
@@ -234,78 +132,62 @@ function Hero() {
 
 function Projects() {
   return (
-    <section id="work" className="py-20 scroll-mt-20">
-      <div className="flex items-center gap-6 mb-14">
-        <h2 className="text-2xl lg:text-3xl font-bold tracking-tighter flex items-center gap-3">
-          <span className="text-primary font-mono text-lg">//</span> Selected Projects
-        </h2>
-        <div className="h-px flex-1 bg-border" />
+    <section id="work" className="py-20 border-t border-border/50 scroll-mt-20">
+      <h2 className="text-xl font-mono text-primary mb-10 tracking-tight">// Selected Projects</h2>
+
+      <div className="border border-border rounded-xl overflow-hidden bg-card/20 animate-reveal">
+        <div className="flex items-center justify-between gap-4 px-4 py-2.5 border-b border-border font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+          <span className="flex items-center gap-1.5">
+            <span className="text-primary normal-case">explorer</span>
+            <span>/ projects</span>
+          </span>
+          <span>{projectCounts.total} entries</span>
+        </div>
+
+        <ul className="divide-y divide-border/60">
+          {projects.map((project) => (
+            <li key={project.slug}>
+              <Link
+                to="/projects"
+                search={{ project: project.slug }}
+                className="group flex items-center gap-3 px-4 py-3 transition-colors hover:bg-white/[0.03]"
+              >
+                <span
+                  className={`size-1.5 shrink-0 rounded-full ${statusMeta[project.status].dot}`}
+                />
+                <FileCode2 className="size-3.5 shrink-0 text-muted-foreground/60" />
+                <span className="hidden sm:inline font-mono text-[11px] text-muted-foreground/70 truncate">
+                  {project.file}
+                </span>
+                <span className="text-sm font-bold text-primary group-hover:text-foreground transition-colors truncate">
+                  {project.title}
+                </span>
+                <span className="ml-auto flex items-center gap-3 shrink-0">
+                  <span className="hidden md:inline text-[9px] font-mono uppercase tracking-widest text-muted-foreground">
+                    {project.category}
+                  </span>
+                  <StatusPill status={project.status} />
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.title} project={project} index={index} />
-        ))}
-      </div>
-
-      <p className="mt-8 text-sm text-muted-foreground font-mono">
-        // Press play on any card to watch the gameplay demo.
-      </p>
-
-    </section>
-  );
-}
-
-function ProjectCard({
-  project,
-  index,
-}: {
-  project: (typeof projects)[number];
-  index: number;
-}) {
-  const accentClasses = {
-    primary: "group-hover:border-primary/40",
-    secondary: "group-hover:border-secondary/40",
-    accent: "group-hover:border-accent/40",
-  };
-
-  const badgeClasses = {
-    primary: "bg-primary/10 text-primary border-primary/20",
-    secondary: "bg-secondary/10 text-secondary border-secondary/20",
-    accent: "bg-accent/10 text-accent border-accent/20",
-  };
-
-  return (
-    <div
-      className={`group border border-border bg-card/30 rounded-xl overflow-hidden transition-all hover:bg-card/50 ${accentClasses[project.accent]} animate-reveal`}
-      style={{ animationDelay: `${(index + 1) * 100}ms` }}
-    >
-      <div
-        className={`relative border-b border-border overflow-hidden bg-black ${project.tall ? "aspect-[640/1386]" : "aspect-video"}`}
-      >
-        <video
-          src={project.video}
-          poster={project.poster}
-          controls
-          playsInline
-          preload="none"
-          aria-label={`${project.title} gameplay demo`}
-          className={`w-full h-full ${project.tall ? "object-contain" : "object-cover"}`}
-        />
-      </div>
-
-      <div className="p-6">
-        <h3 className="text-lg lg:text-xl font-bold text-primary group-hover:text-foreground transition-colors mb-3">
-          {project.title}
-        </h3>
-        <p className="text-sm text-muted-foreground leading-relaxed mb-5">{project.description}</p>
-        <span
-          className={`inline-block text-[9px] font-mono px-2 py-1 rounded border ${badgeClasses[project.accent]}`}
+      <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <p className="text-sm text-muted-foreground font-mono">
+          // {projectCounts.total} projects — {projectCounts.completed} completed,{" "}
+          {projectCounts.inDevelopment} in development.
+        </p>
+        <Link
+          to="/projects"
+          className="inline-flex items-center gap-2 font-mono text-xs text-primary hover:text-foreground transition-colors"
         >
-          {project.category}
-        </span>
+          Open project explorer
+          <ArrowRight className="size-3.5" />
+        </Link>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -314,7 +196,9 @@ function Expertise() {
     <section id="stack" className="py-20 border-t border-border/50 scroll-mt-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div className="animate-reveal">
-          <h2 className="text-xl font-mono text-primary mb-10 tracking-tight">// Technical Expertise</h2>
+          <h2 className="text-xl font-mono text-primary mb-10 tracking-tight">
+            // Technical Skills
+          </h2>
 
           <div className="space-y-10 border-l border-border pl-8">
             <SkillGroup title="Programming Languages" skills={skills.languages} color="primary" />
@@ -387,17 +271,13 @@ function SkillGroup({
 function Education() {
   return (
     <section className="py-16 border-t border-border/50">
-      <div className="flex items-center gap-6 mb-8">
-        <h2 className="text-xl font-mono text-accent tracking-tight">// Education</h2>
-        <div className="h-px flex-1 bg-border/40" />
-      </div>
+      <h2 className="text-xl font-mono text-accent mb-8 tracking-tight">// Education</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-card/30 border border-border rounded-xl p-6">
-          <h3 className="text-lg font-bold text-foreground mb-2">
-            Ohio University — B.S. in Communication, Virtual Reality & Game Development
-          </h3>
-          <p className="text-sm text-secondary font-mono mb-3">Dec 2024</p>
+          <h3 className="text-lg font-bold text-foreground mb-2">B.S. in VR & Game Development</h3>
+          <p className="text-sm text-secondary font-mono mb-1">Ohio University</p>
+          <p className="text-[10px] font-mono text-muted-foreground mb-3">Aug 2021 — Dec 2024</p>
           <p className="text-sm text-muted-foreground">
             Minor: Communication Studies • Degree GPA: 3.818 • Major GPA: 3.830
           </p>
