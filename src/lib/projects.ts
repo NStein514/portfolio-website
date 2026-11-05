@@ -8,8 +8,6 @@ import bullseyeVideo from "../assets/bullseye-bill-demo.mp4.asset.json";
 import bullseyePoster from "../assets/bullseye-bill-poster.jpg.asset.json";
 import subthreadVideo from "../assets/subthread-demo.mp4.asset.json";
 import subthreadPoster from "../assets/subthread-poster.jpg.asset.json";
-import healthyHabitsVideo from "../assets/healthy-habits-demo.mp4.asset.json";
-import healthyHabitsPoster from "../assets/healthy-habits-poster.jpg.asset.json";
 
 // Videos/posters are served from Lovable's asset CDN. Use absolute URLs so
 // they keep working when the site is deployed off Lovable (e.g. Cloudflare).
@@ -30,6 +28,8 @@ export type Project = {
   /** Optional demo capture. Entries without one show a placeholder panel. */
   video?: string;
   poster?: string;
+  /** App icon shown beside the capture on mobile-only projects. */
+  appIcon?: string;
   description: string;
   tags: string[];
   /** Public GitHub repository for this project. */
@@ -46,13 +46,59 @@ export const projects: Project[] = [
     file: "healthy-habits.dart",
     category: "MOBILE",
     status: "completed",
-    video: asset(healthyHabitsVideo),
-    poster: asset(healthyHabitsPoster),
+    video: "/media/healthy-habits-demo.mp4",
+    poster: "/media/healthy-habits-poster.jpg",
+    appIcon: "/media/healthy-habits-icon.png",
     description:
       "Solo mobile development project of a daily healthy habits checklist with an emphasis on virtual decorations.",
     tags: ["Flutter", "Dart", "Mobile"],
     repoUrl: "https://github.com/NStein514/CozyHabitGame",
     accent: "secondary",
+  },
+  {
+    slug: "devorbit",
+    title: "DevOrbit",
+    file: "devorbit.tsx",
+    category: "WEB",
+    status: "completed",
+    video: "/media/devorbit-demo.mp4",
+    poster: "/media/devorbit-poster.jpg",
+    description:
+      "A calmer mission control for individual developers and their side projects: a space-inspired workspace for planning, building and shipping. Includes a responsive homepage, personalization settings, a customizable Kanban workspace, project-level bug tracking, milestones, GitHub integration, changelog generation and a customizable Pomodoro Timer, built with React, TypeScript and Vite. The homepage shows real project/task progress and bug/milestone summaries.",
+    tags: ["React", "TypeScript", "Vite"],
+    repoUrl: "https://github.com/NStein514/DevOrbit",
+    liveUrl: "https://devorbit.steindev.workers.dev/",
+    accent: "secondary",
+  },
+  {
+    slug: "trail-off",
+    title: "Trail Off",
+    file: "trail-off.dart",
+    category: "MOBILE",
+    status: "completed",
+    video: "/media/trail-off-demo.mp4",
+    poster: "/media/trail-off-poster.jpg",
+    appIcon: "/media/trail-off-icon.png",
+    description:
+      "A Flutter application for hikers: discover trails, download offline maps, track routes, see the stars in the sky above, and record outdoor adventures. It also recommends routes based on ability and conditions, generates packing checklists, and answers questions from downloaded trail information.",
+    tags: ["Flutter", "Dart", "Offline Maps", "AI"],
+    repoUrl: "https://github.com/NStein514/TrailOff",
+    accent: "secondary",
+  },
+  {
+    slug: "cursed-auction-house",
+    title: "Cursed Auction House",
+    file: "cursed-auction-house.dart",
+    category: "GAME",
+    status: "completed",
+    video: "/media/cursed-auction-house-demo.mp4",
+    poster: "/media/cursed-auction-house-poster.jpg",
+    appIcon: "/media/cursed-auction-house-icon.png",
+    description:
+      "A Flutter game for iOS, Android, Windows, macOS, Linux and the web. You are an artifact dealer in increasingly dangerous auctions: every lot hides a true value, maybe a charm and maybe a curse. Five AI rivals bid against you, each with a secret personality, a budget and preferences. Learn them, read their tells and manipulate the bidding wars.",
+    tags: ["Flutter", "Dart", "AI", "Multiplatform"],
+    repoUrl: "https://github.com/NStein514/CursedAuctionHouse",
+    accent: "accent",
   },
   {
     slug: "tonedeaf",
@@ -111,31 +157,6 @@ export const projects: Project[] = [
     accent: "primary",
   },
   {
-    slug: "deckbuilding-dungeon",
-    title: "Deckbuilding Dungeon",
-    file: "deckbuilding-dungeon.dart",
-    category: "GAME",
-    status: "in-development",
-    description:
-      "A mobile-first, offline single-player roguelike deckbuilder set in the Ashen Crypt. Your cards are your attacks, wards, spells and tactical choices: attack, defend, heal and cast spells using the cards you draw. Your deck changes as you explore, and cards can combine into powerful abilities. Developed as a solo Flutter/Dart project.",
-    tags: ["Flutter", "Dart", "Roguelike", "Solo Dev"],
-    repoUrl: "https://github.com/NStein514/DeckbuildingDungeon",
-    accent: "primary",
-  },
-  {
-    slug: "devorbit",
-    title: "DevOrbit",
-    file: "devorbit.tsx",
-    category: "WEB",
-    status: "in-development",
-    description:
-      "A calmer mission control for individual developers and their side projects: a space-inspired workspace for planning, building and shipping. Includes a responsive homepage, personalization settings, a customizable Kanban workspace, project-level bug tracking, milestones, GitHub integration, changelog generation and a customizable Pomodoro Timer, built with React, TypeScript and Vite. The homepage shows real project/task progress and bug/milestone summaries.",
-    tags: ["React", "TypeScript", "Vite"],
-    repoUrl: "https://github.com/NStein514/DevOrbit",
-    liveUrl: "https://devorbit.steindev.workers.dev/",
-    accent: "secondary",
-  },
-  {
     slug: "pantry-pal",
     title: "Pantry Pal",
     file: "pantry-pal.dart",
@@ -148,6 +169,18 @@ export const projects: Project[] = [
     accent: "accent",
   },
   {
+    slug: "deckbuilding-dungeon",
+    title: "Deckbuilding Dungeon",
+    file: "deckbuilding-dungeon.dart",
+    category: "GAME",
+    status: "in-development",
+    description:
+      "A mobile-first, offline single-player roguelike deckbuilder set in the Ashen Crypt. Your cards are your attacks, wards, spells and tactical choices: attack, defend, heal and cast spells using the cards you draw. Your deck changes as you explore, and cards can combine into powerful abilities. Developed as a solo Flutter/Dart project.",
+    tags: ["Flutter", "Dart", "Roguelike", "Solo Dev"],
+    repoUrl: "https://github.com/NStein514/DeckbuildingDungeon",
+    accent: "primary",
+  },
+  {
     slug: "fakeos",
     title: "FakeOS",
     file: "fakeos.tsx",
@@ -158,18 +191,6 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Narrative"],
     repoUrl: "https://github.com/NStein514/FakeOS",
     accent: "primary",
-  },
-  {
-    slug: "cursed-auction-house",
-    title: "Cursed Auction House",
-    file: "cursed-auction-house.dart",
-    category: "GAME",
-    status: "in-development",
-    description:
-      "A Flutter game for iOS, Android, Windows, macOS, Linux and the web. You are an artifact dealer in increasingly dangerous auctions: every lot hides a true value, maybe a charm and maybe a curse. Five AI rivals bid against you, each with a secret personality, a budget and preferences. Learn them, read their tells and manipulate the bidding wars.",
-    tags: ["Flutter", "Dart", "AI", "Multiplatform"],
-    repoUrl: "https://github.com/NStein514/CursedAuctionHouse",
-    accent: "accent",
   },
 ];
 

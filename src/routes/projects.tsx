@@ -291,25 +291,51 @@ function ProjectDetail({ project }: { project: Project }) {
       key={project.slug}
       className="border border-border bg-card/20 rounded-xl overflow-hidden animate-reveal"
     >
-      <div className="relative bg-black border-b border-border flex items-center justify-center">
-        {project.video ? (
-          <video
-            key={project.slug}
-            src={project.video}
-            poster={project.poster}
-            controls
-            playsInline
-            preload="none"
-            aria-label={`${project.title} gameplay demo`}
-            className="w-full max-h-[60vh] object-contain"
-          />
+      <div className="relative border-b border-border">
+        {project.appIcon ? (
+          <div className="bg-card/20 p-5 lg:p-8">
+            <div className="flex flex-col items-center sm:flex-row sm:items-center justify-center gap-5 lg:gap-8">
+              <img
+                src={project.appIcon}
+                alt={`${project.title} app icon`}
+                className="size-24 lg:size-40 shrink-0 self-center rounded-2xl border border-border object-cover shadow-xl shadow-black/40"
+              />
+              {project.video ? (
+                <video
+                  key={project.slug}
+                  src={project.video}
+                  poster={project.poster}
+                  controls
+                  playsInline
+                  preload="none"
+                  aria-label={`${project.title} screen recording`}
+                  className="h-[52vh] max-h-[32rem] w-auto max-w-full rounded-xl border border-border bg-black"
+                />
+              ) : null}
+            </div>
+          </div>
         ) : (
-          <div className="flex flex-col items-center justify-center gap-2 px-6 py-16 text-center">
-            <FileCode2 className="size-6 text-muted-foreground/40" />
-            <p className="font-mono text-[11px] text-muted-foreground">{project.file}</p>
-            <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
-              // demo capture coming soon
-            </p>
+          <div className="bg-black flex items-center justify-center">
+            {project.video ? (
+              <video
+                key={project.slug}
+                src={project.video}
+                poster={project.poster}
+                controls
+                playsInline
+                preload="none"
+                aria-label={`${project.title} gameplay demo`}
+                className="w-full max-h-[60vh] object-contain"
+              />
+            ) : (
+              <div className="flex flex-col items-center justify-center gap-2 px-6 py-16 text-center">
+                <FileCode2 className="size-6 text-muted-foreground/40" />
+                <p className="font-mono text-[11px] text-muted-foreground">{project.file}</p>
+                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
+                  // demo capture coming soon
+                </p>
+              </div>
+            )}
           </div>
         )}
         <div className="pointer-events-none absolute top-3 left-3">
